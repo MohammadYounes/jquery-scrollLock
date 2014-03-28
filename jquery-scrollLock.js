@@ -34,7 +34,7 @@
           }
         });
       });
-  }
+  };
   // no conflict
   $.fn.scrollLock.noConflict = function () {
     $.fn.scrollLock = old
