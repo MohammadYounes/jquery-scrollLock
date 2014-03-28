@@ -1,0 +1,26 @@
+{
+  "name": "scrollLock",
+  "title": "Scroll Lock",
+  "description": "Locks mouse wheel scroll inside container, preventing it from propagating to parent elements",
+  "version": "0.1.0",
+  "author": {
+    "name": "Mohammad Younes",
+    "email": "myounes@gmail.com",
+    "url": "https://github.com/MohammadYounes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MohammadYounes/jquery-scrollLock.git"
+  },
+  "bugs": "https://github.com/MohammadYounes/jquery-scrollLock/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/MohammadYounes/jquery-scrollLock/blob/master/LICENSE"
+    }
+  ],
+  "keywords": ["scroll","lock", "wheel","mousewheel"],
+	"dependencies": {
+      "jquery": ">=1.x"
+   }
+}
