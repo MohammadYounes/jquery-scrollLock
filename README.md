@@ -3,6 +3,7 @@ Scroll Lock
 
 Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing it from propagating to parent element.
 
+> View [demo](http://mohammadyounes.github.io/jquery-scrollLock/example/)
 
 ##Features
 
