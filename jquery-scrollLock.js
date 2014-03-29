@@ -1,5 +1,5 @@
 /*
- * scrollLock
+ * Scroll Lock
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2014 Mohammad Younes
@@ -18,20 +18,33 @@
       });
     else
       return this.each(function () {
-        $(this).on(eventName + eventNamespace, function (event) {
-          var $this = $(this),
-              scrollTop = $this.scrollTop(),
-              scrollHeight = $this.prop('scrollHeight'),
-              clientHeight = $this.prop('clientHeight'),
-              delta = event.originalEvent.wheelDelta || (-1 * event.originalEvent.detail) || (-1 * event.originalEvent.deltaY),
-              deltaY = event.type == "wheel" ? event.originalEvent.deltaY : 0
-          ;
-          if (delta > 0 && scrollTop + deltaY <= 0 || delta < 0 && scrollTop + deltaY >= scrollHeight - clientHeight) {
-            event.stopPropagation();
-            event.preventDefault();
-            if (deltaY)
-              $this.scrollTop(scrollTop + deltaY)
-          }
+        $(this).on(eventName + eventNamespace, function (event) {				
+					//allow zooming
+					if(!event.ctrlKey){
+          	var $this = $(this),
+							clientWidth  = $this.prop('clientWidth'),
+							offsetWidth  = $this.prop('offsetWidth')
+						;
+						//has vertical scroll
+						if(clientWidth < offsetWidth){
+							var scrollTop = $this.scrollTop(),
+									scrollHeight = $this.prop('scrollHeight'),
+									clientHeight = $this.prop('clientHeight'),
+									delta = event.originalEvent.wheelDelta || (-1 * event.originalEvent.detail) || (-1 * event.originalEvent.deltaY),
+									deltaY = 0
+							;
+							if(event.type == "wheel"){
+								 var ratio = $this.height()/$(window).height();
+								 deltaY = event.originalEvent.deltaY * ratio;
+							}
+							if (delta > 0 && scrollTop + deltaY <= 0 || delta < 0 && scrollTop + deltaY >= scrollHeight - clientHeight) {
+								event.stopPropagation();
+								event.preventDefault();
+								if (deltaY)
+									$this.scrollTop(scrollTop + deltaY)
+							}
+						}
+					}
         });
       });
   };
@@ -40,5 +53,4 @@
     $.fn.scrollLock = old
     return this;
   }
-
 })(jQuery);
