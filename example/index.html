@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="semantic.min.css">
   <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://semantic-ui.com/build/packaged/javascript/semantic.min.js"></script>	
   <script type="text/javascript" src="jquery-scrollLock.min.js"></script>
 
   <style type="text/css">
@@ -23,12 +24,34 @@
       overflow: auto;
 			color: black;
     }
+		 .ui.checkbox label{
+			color: rgba(255,255,255,.6);
+		}
+		.ui.checkbox label:hover {
+			color: rgba(255,255,255,.9);
+		}
   </style>
 
   <script type="text/javascript">
     //<![CDATA[
     $(function () {
-      $('.content').last().scrollLock();
+			var toggle  = $('.checkbox'),
+					segment = $('.ui.segment')
+			;
+			
+			toggle.checkbox({onChange:function(a){
+				var enabled = toggle.checkbox('is enabled');
+				segment
+					.find('.label')
+					.toggleClass('green', enabled)
+					.toggleClass('red', !enabled)
+				;				
+				segment
+					.find('.content')
+					.scrollLock(!enabled?'off':'on')
+				;
+			}});
+      $('.content').scrollLock();
     });
     //]]>
   </script>
@@ -40,31 +63,40 @@
   <h1 class="ui inverted header">
     Scroll Lock Demo
   </h1>
+	
+	<div class="ui inverted toggle checkbox">
+  	<input type="checkbox" name="lock" checked>
+		<label>Toggle Scroll Lock</label>
+	</div>
+	
+	<div class="ui divider"></div>
+	
   <div class="ui stackable two column grid">
-
+<div class="row">
     <div class="column">
       <div class="ui segment">
           <div class="ui top attached green label">
-            Unlocked
+            Scrollable contents
           </div>
-          <div class="content">
+          <div class="content locked">
             wheel scroll me   <br>
             wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me
           </div>
       </div>
     </div>
-
-    <div class="column">
+		<div class="column">
       <div class="ui segment">
-        <div class="ui top attached red label">
-          Locked
-        </div>
-        <div class="content">
-          wheel scroll me   <br>
-          wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me
-        </div>
+          <div class="ui top attached green label">
+            No Scrollable contents
+          </div>
+          <div class="content locked">
+            Having no vertical scrollbar means unlocked
+          </div>
       </div>
     </div>
+    
+</div>	
+		
 
   </div>
 </body>
