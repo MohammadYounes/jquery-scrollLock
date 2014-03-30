@@ -22,7 +22,7 @@
       margin: 0 auto;
       height: 200px;
       overflow: auto;
-			color: black;
+      color: black;
     }
 		 .ui.checkbox label{
 			color: rgba(255,255,255,.6);
@@ -63,18 +63,22 @@
   <h1 class="ui inverted header">
     Scroll Lock Demo
   </h1>
-	
-	<div class="ui inverted toggle checkbox">
+  <div class="ui inverted toggle checkbox">
   	<input type="checkbox" name="lock" checked>
 		<label>Toggle Scroll Lock</label>
 	</div>
-	
-	<div class="ui divider"></div>
+	    <div style="float:right;clear:none;">
+    <span class="credits"><a href="https://github.com/MohammadYounes/jquery-scrollLock">Scroll Lock</a> By <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
+  </div>
+  <br>
+  <br>
+  <hr>
+
 	
   <div class="ui stackable two column grid">
-<div class="row">
-    <div class="column">
-      <div class="ui segment">
+    <div class="row">
+      <div class="column">
+        <div class="ui segment">
           <div class="ui top attached green label">
             Scrollable contents
           </div>
@@ -82,10 +86,10 @@
             wheel scroll me   <br>
             wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me
           </div>
+        </div>
       </div>
-    </div>
-		<div class="column">
-      <div class="ui segment">
+	   <div class="column">
+     <div class="ui segment">
           <div class="ui top attached green label">
             No Scrollable contents
           </div>
@@ -93,11 +97,9 @@
             Having no vertical scrollbar means unlocked
           </div>
       </div>
-    </div>
-    
-</div>	
-		
-
+    </div>    
+    </div>	
   </div>
+
 </body>
 </html>
