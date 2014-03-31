@@ -30,4 +30,4 @@ $('target').scrollLock('off');
 
 ------
 
-Have a bug? please [open a new issues.](https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open)
+Have a suggestion or a bug ? please [open a new issue.](https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open)
