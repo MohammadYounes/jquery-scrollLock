@@ -1,0 +1,14 @@
+{
+  "name": "jquery.scrollLock",
+  "version": "0.1.6",
+  "main": "jquery-scrollLock.js",
+  "license": "MIT",
+  "ignore": [
+    ".gitignore",
+    "jquery-scrollLock.min.js",
+    "scrollLock.jquery.json"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  }
+}
