@@ -5,7 +5,15 @@
  * Copyright (c) 2014 Mohammad Younes
  * Licensed under the MIT license.
  */
-(function ($) {
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+}(function ($) {
 
   var eventName = "onmousewheel" in window ? (("ActiveXObject" in window) ? "wheel" : "mousewheel") : "DOMMouseScroll";
   var eventNamespace = ".scrollLock";
@@ -57,4 +65,4 @@
     $.fn.scrollLock = old
     return this;
   }
-})(jQuery);
+}));
