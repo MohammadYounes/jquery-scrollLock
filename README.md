@@ -25,8 +25,10 @@ $('target').scrollLock('off');
 
 ```
 
-
-
+###Install using bower
+```
+bower install jquery-scrollLock
+```
 
 ------
 
