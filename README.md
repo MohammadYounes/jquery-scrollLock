@@ -1,3 +1,5 @@
+[![Bower version](https://badge.fury.io/bo/jquery-scrollLock.svg)](http://badge.fury.io/bo/jquery-scrollLock)
+
 Scroll Lock 
 =================
 
