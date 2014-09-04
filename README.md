@@ -41,6 +41,13 @@ $('#container').scrollLock('on', 'div');
 bower install jquery-scrollLock
 ```
 
+###Install using NuGet
+```
+PM> Install-Package jquery-scrollLock
+```
+
+
+
 ------
 
 Have a suggestion or a bug ? please [open a new issue.](https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open)
