@@ -1,6 +1,6 @@
 {
   "name": "jquery-scrollLock",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "main": "jquery-scrollLock.js",
   "license": "MIT",
   "ignore": [
