@@ -1,5 +1,5 @@
-/*
- * Scroll Lock
+/*!
+ * Scroll Lock v1.0.0
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2014 Mohammad Younes
@@ -19,14 +19,18 @@
   var eventNamespace = ".scrollLock";
 
   var old = $.fn.scrollLock;
-  $.fn.scrollLock = function (action) {
-    if (action == 'off')
+  $.fn.scrollLock = function (toggle, selector) {
+
+    if (typeof selector !== 'string')
+      selector = null;
+
+    if ((toggle !== undefined && !toggle) || toggle === 'off')
       return this.each(function () {
         $(this).off(eventNamespace);
       });
     else
       return this.each(function () {
-        $(this).on(eventName + eventNamespace, function (event) {
+        $(this).on(eventName + eventNamespace, selector, function (event) {
           //allow zooming
           if (!event.ctrlKey) {
             var $this = $(this);
@@ -37,7 +41,7 @@
                   delta = event.originalEvent.wheelDelta || (-1 * event.originalEvent.detail) || (-1 * event.originalEvent.deltaY),
                   deltaY = 0
               ;
-              if (event.type == "wheel") {
+              if (event.type === "wheel") {
                 var ratio = $this.height() / $(window).height();
                 deltaY = event.originalEvent.deltaY * ratio;
               }
@@ -45,7 +49,7 @@
                 event.stopPropagation();
                 event.preventDefault();
                 if (deltaY)
-                  $this.scrollTop(scrollTop + deltaY)
+                  $this.scrollTop(scrollTop + deltaY);
               }
             }
           }
@@ -59,10 +63,10 @@
         borderLeftWidth = parseInt($element.css('border-left-width'), 10)
     ;
     return clientWidth + borderLeftWidth + borderRightWidth < offsetWidth;
-  };
+  }
   // no conflict
   $.fn.scrollLock.noConflict = function () {
-    $.fn.scrollLock = old
+    $.fn.scrollLock = old;
     return this;
-  }
+  };
 }));

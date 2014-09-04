@@ -16,7 +16,6 @@ Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse w
 
 
 ##Usage
-
 ```
 
 //Lock
@@ -26,7 +25,17 @@ $('target').scrollLock();
 $('target').scrollLock('off');
 
 ```
+#### Delegated handler
+```
 
+// .scrollLock(toggle,selector);
+// @toggle:   any true value other than 'off' to lock, otherwise unlock.
+// @selector: string to filter the descendants of the selected elements
+
+// lock all divs inside a given container
+$('#container').scrollLock('on', 'div');
+
+```
 ###Install using bower
 ```
 bower install jquery-scrollLock
