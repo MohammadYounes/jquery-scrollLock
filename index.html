@@ -57,7 +57,7 @@
 <p>On Windows it can be set to one screen or one line up to 100 lines per notch.</p>
 </blockquote>
 </li>
-</ul><h2>
+</ul><h2> 
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <pre><code>
@@ -67,8 +67,21 @@ $('target').scrollLock();
 //Unlock
 $('target').scrollLock('off');
 
+</code></pre>		  
+
+		  
+<h2 style="font-size:1.25em;"><a name="usage" class="anchor" href="#delegatedHandler"><span class="octicon octicon-link"></span></a>Delegated handler</h2>
+
+<pre><code>
+// .scrollLock(toggle,selector);
+// @toggle:   any true value other than 'off' to lock, otherwise unlock.
+// @selector: string to filter the descendants of the selected elements
+
+// lock all divs inside a given container
+$('#container').scrollLock('on', 'div');
+
 </code></pre>
-			
+		  
 				
 <hr><p>Have a suggestion or a bug ? please <a href="https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open">open a new issue.</a></p>
       </section>
