@@ -34,7 +34,7 @@
           //allow zooming
           if (!event.ctrlKey) {
             var $this = $(this);
-            if (hasVerticalScroll($this) || force === true) {
+            if (force === true || hasVerticalScroll($this)) {
               var scrollTop = $this.scrollTop(),
                   scrollHeight = $this.prop('scrollHeight'),
                   clientHeight = $this.prop('clientHeight'),
