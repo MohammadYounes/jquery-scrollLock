@@ -2,53 +2,49 @@
 [![Bower version](https://badge.fury.io/bo/jquery-scrollLock.svg)](http://badge.fury.io/bo/jquery-scrollLock)
 [![NuGet version](https://badge.fury.io/nu/jquery-scrollLock.svg)](http://badge.fury.io/nu/jquery-scrollLock)
 
-Scroll Lock 
+Scroll Lock
 =================
 
 Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing it from propagating to parent element.
 
 > View [demo](http://mohammadyounes.github.io/jquery-scrollLock/example/)
 
-##Features
+## Features
 
 * It does not change wheel scrolling speed, user experience will not be affected. 
 * You get the same behavior regardless of the OS mouse wheel vertical scrolling speed.
 
   > On Windows it can be set to one screen or one line up to 100 lines per notch.
 
-
-##Usage
+## Usage
 ```
-
-//Lock
+// Lock
 $('target').scrollLock();
 
-//Unlock
+// Unlock
 $('target').scrollLock('off');
 
 ```
 #### Delegated handler
 ```
-
-// .scrollLock(toggle,selector);
-// @toggle:   any true value other than 'off' to lock, otherwise unlock.
+// .scrollLock(toggle, selector, force);
+// @toggle: any true value other than 'off' to lock, otherwise unlock
 // @selector: string to filter the descendants of the selected elements
+// @force: forces lock even if element doesn't have a vertical scroll
 
 // lock all divs inside a given container
 $('#container').scrollLock('on', 'div');
 
 ```
-###Install using bower
+### Install using Bower
 ```
 bower install jquery-scrollLock
 ```
 
-###Install using NuGet
+### Install using NuGet
 ```
 PM> Install-Package jquery-scrollLock
 ```
-
-
 
 ------
 

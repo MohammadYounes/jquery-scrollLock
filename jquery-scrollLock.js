@@ -19,7 +19,7 @@
   var eventNamespace = ".scrollLock";
 
   var old = $.fn.scrollLock;
-  $.fn.scrollLock = function (toggle, selector) {
+  $.fn.scrollLock = function (toggle, selector, force) {
 
     if (typeof selector !== 'string')
       selector = null;
@@ -34,7 +34,7 @@
           //allow zooming
           if (!event.ctrlKey) {
             var $this = $(this);
-            if (hasVerticalScroll($this)) {
+            if (force === true || hasVerticalScroll($this)) {
               var scrollTop = $this.scrollTop(),
                   scrollHeight = $this.prop('scrollHeight'),
                   clientHeight = $this.prop('clientHeight'),
@@ -62,6 +62,7 @@
         borderRightWidth = parseInt($element.css('border-right-width'), 10),
         borderLeftWidth = parseInt($element.css('border-left-width'), 10)
     ;
+
     return clientWidth + borderLeftWidth + borderRightWidth < offsetWidth;
   }
   // no conflict
