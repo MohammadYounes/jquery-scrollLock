@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -73,9 +73,10 @@ $('target').scrollLock('off');
 <h2 style="font-size:1.25em;"><a name="usage" class="anchor" href="#delegatedHandler"><span class="octicon octicon-link"></span></a>Delegated handler</h2>
 
 <pre><code>
-// .scrollLock(toggle,selector);
+// .scrollLock(toggle,selector,force);
 // @toggle:   any true value other than 'off' to lock, otherwise unlock.
 // @selector: string to filter the descendants of the selected elements
+// @force:    forces lock even if element doesn't have a vertical scroll
 
 // lock all divs inside a given container
 $('#container').scrollLock('on', 'div');
