@@ -1,5 +1,5 @@
 /*!
- * Scroll Lock v1.0.0
+ * Scroll Lock v1.1.0
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2014 Mohammad Younes
