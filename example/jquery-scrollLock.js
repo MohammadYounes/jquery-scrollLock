@@ -1,5 +1,5 @@
 /*!
- * Scroll Lock v1.1.0
+ * Scroll Lock v1.1.1
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2014 Mohammad Younes
@@ -35,6 +35,8 @@
           if (!event.ctrlKey) {
             var $this = $(this);
             if (force === true || hasVerticalScroll($this)) {
+              //Support for nested scrollable blocks (see https://github.com/MohammadYounes/jquery-scrollLock/issues/4)
+              event.stopPropagation();
               var scrollTop = $this.scrollTop(),
                   scrollHeight = $this.prop('scrollHeight'),
                   clientHeight = $this.prop('clientHeight'),
@@ -46,7 +48,6 @@
                 deltaY = event.originalEvent.deltaY * ratio;
               }
               if (delta > 0 && scrollTop + deltaY <= 0 || delta < 0 && scrollTop + deltaY >= scrollHeight - clientHeight) {
-                event.stopPropagation();
                 event.preventDefault();
                 if (deltaY)
                   $this.scrollTop(scrollTop + deltaY);
