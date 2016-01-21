@@ -24,15 +24,18 @@ $('target').scrollLock();
 // Unlock
 $('target').scrollLock('off');
 
-// Available options:
+```
 
-// .scrollLock(toggle, selector, force);
+### Options
+```
+
 // @toggle: any true value other than 'off' to lock, otherwise unlock
 // @selector: string to filter the descendants of the selected elements
 // @force: forces lock even if element doesn't have a vertical scroll
 
-```
+$('target').scrollLock(toggle, selector, force);
 
+```
 
 #### Delegated handler
 ```
