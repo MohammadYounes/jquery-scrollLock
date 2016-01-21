@@ -23,26 +23,22 @@ $('target').scrollLock();
 
 // Unlock
 $('target').scrollLock('off');
-
 ```
 
 ### Options
 ```
-
 // @toggle: any true value other than 'off' to lock, otherwise unlock
 // @selector: string to filter the descendants of the selected elements
 // @force: forces lock even if element doesn't have a vertical scroll
-
 $('target').scrollLock(toggle, selector, force);
-
 ```
 
 #### Delegated handler
 ```
 // lock all divs inside a given container
 $('#container').scrollLock('on', 'div');
-
 ```
+
 ### Install using Bower
 ```
 bower install jquery-scrollLock
