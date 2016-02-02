@@ -1,1 +1,4 @@
 bower_components/*
+typings
+typings.json
+jsconfig.json
