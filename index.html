@@ -1,94 +1,235 @@
 ﻿<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>jQuery Scroll Lock Plugin by MohammadYounes</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>jQuery Scroll Lock Plugin by MohammadYounes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/css/semantic.css">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="javascripts/jquery-scrollLock.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/javascript/semantic.js"></script>
+  <script src="javascripts/respond.js"></script>
+  <script src="javascripts/script.js"></script>
+  <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
+  <!--[if lt IE 8]>
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/MohammadYounes/jquery-scrollLock">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+</head>
 
-    <div class="wrapper">
+<body>
+  <div id="header">
+    <nav>
+      <li class="fork"><a href="https://github.com/MohammadYounes/jquery-scrollLock">View On GitHub</a></li>
+      <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/zipball/master">ZIP</a></li>
+      <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/tarball/master">TAR</a></li>
+      <li class="title">DOWNLOADS</li>
+    </nav>
+  </div>
+  <!-- end header -->
+  <div class="wrapper">
+    <section>
+      <div id="title">
+        <h1>jQuery Scroll Lock Plugin</h1>
+        <p>Locks mouse wheel scroll inside container, preventing it from propagating to parent elements</p>
+        <hr>
+        <span class="credits left">Project maintained by <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
+        <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+      </div>
+      <h1> <a name="scroll-lock-" class="anchor" href="#scroll-lock-"><span class="octicon octicon-link"></span></a> Scroll Lock </h1>
+      <p>
+        Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing
+        it from propagating to parent element.
+      </p>
+      <!--<blockquote>
+        <p> Jump to <a href="#demo">examples</a>.</p>
+      </blockquote>-->
+      <h3><a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+      <ul>
+        <li>It does not change wheel scrolling speed, user experience will not be affected. </li>
+        <li>
+          <p>You get the same behavior regardless of the OS mouse wheel vertical scrolling speed.</p>
 
-      <section>
-        <div id="title">
-          <h1>jQuery Scroll Lock Plugin</h1>
-          <p>Locks mouse wheel scroll inside container, preventing it from propagating to parent elements</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+          <blockquote>
+            <p>On Windows it can be set to one screen or one line up to 100 lines per notch.</p>
+          </blockquote>
+        </li>
+      </ul>
+      
+      <h3><a name="install-with-nuget" class="anchor" href="#install-with-nuget"><span class="octicon octicon-link"></span></a> Install with <a href="https://www.nuget.org/packages/jquery-scrollLock/">NuGet</a> </h3>
+      <pre><code>
+Install-Package jquery-scrollLock
+            </pre></code>
+
+      <h3><a name="install-with-bower" class="anchor" href="#install-with-bower"><span class="octicon octicon-link"></span></a> Install with Bower </h3>
+      <pre><code>
+bower install jquery-scrollLock
+      </pre></code>
+      
+      <br/>
+      <h1> <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
+      <hr/>
+      <h3> <a name="example1" class="anchor" href="#example1"><span class="octicon octicon-link"></span></a>Example 1</h3>
+      <p>
+        Locking a scrollable element prevents wheel scroll event from propagating to its parent element.
+      </p>
+      <div class="ui segment">
+        <div class="example locked" data-strict="true">
+          <span class="wrap">
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+            <p> Scroll over this using mouse wheel.</p>
+          </span>
+          <i class="top"></i>
         </div>
+        <div class="ui top attached green label">
+          Scrollable Content
+        </div>
+        <div class="ui bottom attached label">
+          <div class="ui toggle enable checkbox">
+            <input type="checkbox" name="lock1" checked>
+            <label>Lock</label>
+          </div>
+          <div class="ui toggle strict checkbox" data-content="Lock element even if it has no vertical scrollbar" data-position="right center">
+            <input type="checkbox" name="strict1">
+            <label>Strict</label>
+          </div>
+        </div>
+      </div>
 
-        <h1>
-<a name="scroll-lock-" class="anchor" href="#scroll-lock-"><span class="octicon octicon-link"></span></a>Scroll Lock </h1>
 
-<p>Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing it from propagating to parent element.</p>
-<blockquote>
-	<p>View <a href="example">demo</a>.</p>
-</blockquote>
-<h2>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+      <h3> <a name="example2" class="anchor" href="#example2"><span class="octicon octicon-link"></span></a>Example 2</h3>
+      <p>
+        Even none-scrollable elements can be locked.
+      </p>
+      <div class="ui segment">
+        <div class="example locked">
+          <span class="wrap">
+            <p> Scroll over this using mouse wheel.</p>
+          </span>
+          <i class="top"></i>
+        </div>
+        <div class="ui top attached green label">
+          None Scrollable Content
+        </div>
+        <div class="ui bottom attached label">
+          <div class="ui toggle enable checkbox">
+            <input type="checkbox" name="lock2" checked>
+            <label>Lock</label>
+          </div>
+          <div class="ui toggle strict checkbox" data-content="Lock element even if it has no vertical scrollbar" data-position="right center">
+            <input type="checkbox" name="strict2">
+            <label>Strict</label>
+          </div>
+        </div>
+      </div>
 
-<ul>
-<li>It does not change wheel scrolling speed, user experience will not be affected. </li>
-<li>
-<p>You get the same behavior regardless of the OS mouse wheel vertical scrolling speed.</p>
+      <br/>
+      <h1> <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+      <hr/>
+      <p>Trigger Scroll Lock via JavaScript:</p>
+      <pre><code>
+$('#target').scrollLock();
+            </code></pre>
+      <p>Trigger Scroll Lock via Markup:</p>
+      <pre><code>
+&lt;!-- HTML --&gt;
+&lt;div data-scrollLock="true" data-strict="true" data-selector=".child" &gt;
+ &hellip; 
+&lt;/div&gt;
 
-<blockquote>
-<p>On Windows it can be set to one screen or one line up to 100 lines per notch.</p>
-</blockquote>
-</li>
-</ul><h2> 
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+&lt;!-- JavaScript --&gt;
+$('[data-scrollLock="true"]').scrollLock()
+            </code></pre>
+      <h2><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a> Options </h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td><code>string</code></td>
+          <td><code>false</code></td>
+          <td>When provided, matching elements will be locked.</td>
+        </tr>
+        <tr>
+          <td>strict</td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>When enabled, element will be locked even if it has no vertical scrollbar.</td>
+        </tr>
+      </table>
+      <h2><a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a> Methods </h2>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>.scrollLock('enable')</code></td>
+          <td>Enables an element's Scroll Lock.</td>
+        </tr>
+        <tr>
+          <td><code>.scrollLock('disable')</code></td>
+          <td>Disables an element's Scroll Lock.</td>
+        </tr>
+        <tr>
+          <td><code>.scrollLock('toggleStrict')</code></td>
+          <td>Toggles an element's strict option.</td>
+        </tr>
+        <tr>
+          <td><code>.scrollLock('destroy')</code></td>
+          <td>Disables and destroys an element's Scroll Lock.</td>
+        </tr>
+      </table>
+      <h2><a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a> Events </h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><code>top.scrollLock</code></td>
+          <td>This event fires immediately when the top edge scroll is locked.</td>
+        </tr>
+        <tr>
+          <td><code>bottom.scrollLock</code></td>
+          <td>This event fires immediately when the bottom edge scroll is locked.</td>
+        </tr>
+      </table>
+      <pre><code>
+$('#target').on('top.scrollLock', function (evt) {
+  // do magic...
+})
+            </code></pre>
 
-<pre><code>
-//Lock
-$('target').scrollLock();
+      <hr>
+      <p>Have a suggestion or a bug ? please <a href="https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open">open a new issue.</a></p>
+    </section>
+  </div>
+  <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+</body>
 
-//Unlock
-$('target').scrollLock('off');
-
-</code></pre>		  
-
-		  
-<h2 style="font-size:1.25em;"><a name="usage" class="anchor" href="#delegatedHandler"><span class="octicon octicon-link"></span></a>Delegated handler</h2>
-
-<pre><code>
-// .scrollLock(toggle,selector,force);
-// @toggle:   any true value other than 'off' to lock, otherwise unlock.
-// @selector: string to filter the descendants of the selected elements
-// @force:    forces lock even if element doesn't have a vertical scroll
-
-// lock all divs inside a given container
-$('#container').scrollLock('on', 'div');
-
-</code></pre>
-		  
-				
-<hr><p>Have a suggestion or a bug ? please <a href="https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open">open a new issue.</a></p>
-      </section>
-
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
 </html>

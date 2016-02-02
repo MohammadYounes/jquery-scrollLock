@@ -1,105 +1,10 @@
 ﻿<!doctype html>
 <html>
+
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title> Scroll Lock Demo</title>
-	<link rel="stylesheet" href="../stylesheets/styles.css">
-  <link rel="stylesheet" href="semantic.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../javascripts/semantic.min.js"></script>	
-  <script type="text/javascript" src="jquery-scrollLock.js"></script>
-
-  <style type="text/css">
-    body {
-      padding:25px;
-      height: 2000px;
-    }
-    span{
-      display:block;
-    }
-    .content {
-      margin: 0 auto;
-      height: 200px;
-      overflow: auto;
-      color: black;
-    }
-		 .ui.checkbox label{
-			color: rgba(255,255,255,.6);
-		}
-		.ui.checkbox label:hover {
-			color: rgba(255,255,255,.9);
-		}
-  </style>
-
-  <script type="text/javascript">
-    //<![CDATA[
-    $(function () {
-			var toggle  = $('.checkbox'),
-					segment = $('.ui.segment')
-			;
-			
-			toggle.checkbox({onChange:function(a){
-				var enabled = toggle.checkbox('is enabled');
-				segment
-					.find('.label')
-					.toggleClass('green', enabled)
-					.toggleClass('red', !enabled)
-				;				
-				segment
-					.find('.content')
-					.scrollLock(!enabled?'off':'on')
-				;
-			}});
-      $('.content').scrollLock();
-    });
-    //]]>
-  </script>
-
-
+  <meta http-equiv="refresh" content="0;URL='/'" />
 </head>
 <body>
-
-  <h1 class="ui inverted header">
-    Scroll Lock Demo
-  </h1>
-  <div class="ui inverted toggle checkbox">
-  	<input type="checkbox" name="lock" checked>
-		<label>Toggle Scroll Lock</label>
-	</div>
-	    <div style="float:right;clear:none;">
-    <span class="credits"><a href="https://github.com/MohammadYounes/jquery-scrollLock">Scroll Lock</a> By <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
-  </div>
-  <br>
-  <br>
-  <hr>
-
-	
-  <div class="ui stackable two column grid">
-    <div class="row">
-      <div class="column">
-        <div class="ui segment">
-          <div class="ui top attached green label">
-            Scrollable contents
-          </div>
-          <div class="content locked">
-            wheel scroll me   <br>
-            wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me  <br>wheel scroll me
-          </div>
-        </div>
-      </div>
-	   <div class="column">
-     <div class="ui segment">
-          <div class="ui top attached green label">
-            No Scrollable contents
-          </div>
-          <div class="content locked">
-            Having no vertical scrollbar means unlocked
-          </div>
-      </div>
-    </div>    
-    </div>	
-  </div>
-
+  <p> Page moved <a href="/"> here </a> </p>
 </body>
 </html>
