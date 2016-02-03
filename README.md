@@ -1,6 +1,6 @@
 [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Fjquery-scrollLock.svg)](http://badge.fury.io/gh/MohammadYounes%2Fjquery-scrollLock)
 [![Bower version](https://img.shields.io/bower/v/jquery-scrollLock.svg)](https://github.com/MohammadYounes/jquery-scrollLock)
-[![NuGet version](https://img.shields.io/nuget/v/jquery-scrollLock.svg)](https://github.com/MohammadYounes/jquery-scrollLock)
+[![NuGet version](https://img.shields.io/nuget/v/jquery-scrollLock.svg)](https://www.nuget.org/packages/jquery-scrollLock/)
 
 Scroll Lock
 =================
