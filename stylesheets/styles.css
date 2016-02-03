@@ -546,7 +546,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #e8e8e8;
-  margin: 0 0 10px;
+  padding-top: 80px;
+  margin: -80px 0 10px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
@@ -675,6 +676,7 @@ th {
 }
 
 td {
+  vertical-align: top;
   text-align: left;
   padding: 5px 10px;
   border-bottom: 1px solid #434343;
@@ -855,6 +857,7 @@ section #title .credits.right {
   padding: 4px 4px 0;
   height: 200px;
   overflow: auto;
+  -webkit-overflow-scrolling:touch;
   color: black;
 }
 
@@ -895,9 +898,9 @@ section #title .credits.right {
   box-shadow: 0 0 20px 0 rgb(255, 0, 0);
   border-radius: 500px/10px;
   animation-name: highlight;
-  animation-duration: 1s;
+  animation-duration: .5s;
   animation-fill-mode: both;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
 }
 .locked i:last-child {
   display: block;
@@ -926,25 +929,39 @@ section #title .credits.right {
     opacity: 0;
   }
 }
-/*work around for IE*/
-.locked.dummy-top{
-    animation-name: dummy-top;
+
+.locked.elastic-top .wrap{
+    animation-name: elastic-top;
+    min-height: 0;
 }
-.locked.dummy-bottom{
-    animation-name: dummy-bottom;
+.locked.elastic-bottom .wrap{
+    animation-name: elastic-bottom;
 }
-.locked.dummy-top, .locked.dummy-bottom{
-  animation-duration: 1s;
+.locked.elastic-top .wrap, .locked.elastic-bottom .wrap{
+  animation-duration: .5s;
+  animation-timing-function: ease;
   animation-fill-mode: both;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
 }
-@keyframes dummy-top{
-    to{
-        visibility: visible;
-    }
+@keyframes elastic-top{
+  0% {
+    transform:translate3d(0,0,0);
+  }
+  50% {
+    transform:translate3d(0, 50px, 0);
+  }
+  100% {
+    transform:translate3d(0,0,0);
+  }
 }
-@keyframes dummy-bottom{
-    to{
-        visibility: visible;
-    }
+@keyframes elastic-bottom{
+  0% {
+    transform:translate3d(0,0,0);
+  }
+  50% {
+    transform:translate3d(0,-50px,0);
+  }
+  100% {
+    transform:translate3d(0,0,0);
+  }
 }

@@ -1,6 +1,5 @@
 ﻿<!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -10,7 +9,7 @@
   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="javascripts/jquery-scrollLock.min.js"></script>
+  <script src="javascripts/jquery-scrollLock.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/javascript/semantic.js"></script>
   <script src="javascripts/respond.js"></script>
   <script src="javascripts/script.js"></script>
@@ -43,7 +42,7 @@
         <span class="credits left">Project maintained by <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
         <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
       </div>
-      <h1> <a name="scroll-lock-" class="anchor" href="#scroll-lock-"><span class="octicon octicon-link"></span></a> Scroll Lock </h1>
+      <h1 id="scroll-lock"> Scroll Lock </h1>
       <p>
         Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing
         it from propagating to parent element.
@@ -51,7 +50,7 @@
       <!--<blockquote>
         <p> Jump to <a href="#demo">examples</a>.</p>
       </blockquote>-->
-      <h3><a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+      <h3 id="features">Features</h3>
       <ul>
         <li>It does not change wheel scrolling speed, user experience will not be affected. </li>
         <li>
@@ -62,42 +61,39 @@
           </blockquote>
         </li>
       </ul>
-      
-      <h3><a name="install-with-nuget" class="anchor" href="#install-with-nuget"><span class="octicon octicon-link"></span></a> Install with <a href="https://www.nuget.org/packages/jquery-scrollLock/">NuGet</a> </h3>
+
+      <h3 id="install-with-nuget"> Install with <a href="https://www.nuget.org/packages/jquery-scrollLock/">NuGet</a> </h3>
       <pre><code>
 Install-Package jquery-scrollLock
             </pre></code>
 
-      <h3><a name="install-with-bower" class="anchor" href="#install-with-bower"><span class="octicon octicon-link"></span></a> Install with Bower </h3>
+      <h3 id="install-with-bower"> Install with Bower </h3>
       <pre><code>
 bower install jquery-scrollLock
       </pre></code>
-      
+
       <br/>
-      <h1> <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
+      <h1 id="demo">Demo</h1>
       <hr/>
-      <h3> <a name="example1" class="anchor" href="#example1"><span class="octicon octicon-link"></span></a>Example 1</h3>
+      <h3 id="example1"> Example 1</h3>
       <p>
         Locking a scrollable element prevents wheel scroll event from propagating to its parent element.
       </p>
       <div class="ui segment">
-        <div class="example locked" data-strict="true">
+        <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
           <span class="wrap">
             <p> Scroll over this using mouse wheel.</p>
+            <p> This plugin does not provide any CSS, you need to implement your own!</p>
             <p> Scroll over this using mouse wheel.</p>
+            <p> This plugin does not provide any CSS, you need to implement your own!</p>
             <p> Scroll over this using mouse wheel.</p>
+            <p> This plugin does not provide any CSS, you need to implement your own!</p>
             <p> Scroll over this using mouse wheel.</p>
+            <p> This plugin does not provide any CSS, you need to implement your own!</p>
             <p> Scroll over this using mouse wheel.</p>
+            <p> This plugin does not provide any CSS, you need to implement your own!</p>
             <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
-            <p> Scroll over this using mouse wheel.</p>
+            <p> This plugin does not provide any CSS, you need to implement your own!</p>
           </span>
           <i></i>
         </div>
@@ -117,12 +113,12 @@ bower install jquery-scrollLock
       </div>
 
 
-      <h3> <a name="example2" class="anchor" href="#example2"><span class="octicon octicon-link"></span></a>Example 2</h3>
+      <h3 id="example2">Example 2</h3>
       <p>
         Even none-scrollable elements can be locked.
       </p>
       <div class="ui segment">
-        <div class="example locked">
+        <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
           <span class="wrap">
             <p> In strict mode, this element will not lock as it has no vertical scrollbar.</p>
           </span>
@@ -144,7 +140,7 @@ bower install jquery-scrollLock
       </div>
 
       <br/>
-      <h1> <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+      <h1 id="usage"> Usage</h1>
       <hr/>
       <p>Trigger Scroll Lock via JavaScript:</p>
       <pre><code>
@@ -153,14 +149,17 @@ $('#target').scrollLock();
       <p>Trigger Scroll Lock via Markup:</p>
       <pre><code>
 &lt;!-- HTML --&gt;
-&lt;div data-scrollLock="true" data-strict="true" data-selector=".child" &gt;
+&lt;div data-scrollLock 
+     data-strict="true" 
+     data-selector=".child" 
+     data-animation="{\"top\":\"top locked\",\"bottom\":\"bottom locked\"}" &gt;
  &hellip; 
 &lt;/div&gt;
 
 &lt;!-- JavaScript --&gt;
 $('[data-scrollLock="true"]').scrollLock()
             </code></pre>
-      <h2><a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a> Options </h2>
+      <h2 id="options"> Options </h2>
       <table>
         <tr>
           <th>Option</th>
@@ -169,19 +168,52 @@ $('[data-scrollLock="true"]').scrollLock()
           <th>Description</th>
         </tr>
         <tr>
+          <td>animation</td>
+          <td><code>object</code></td>
+          <td><code>false</code></td>
+          <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks">remarks</a>)</td>
+        </tr>
+        <tr>
           <td>selector</td>
           <td><code>string</code></td>
           <td><code>false</code></td>
-          <td>When provided, matching elements will be locked.</td>
+          <td>When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.</td>
         </tr>
         <tr>
           <td>strict</td>
           <td><code>boolean</code></td>
           <td><code>false</code></td>
-          <td>When enabled, element will be locked even if it has no vertical scrollbar.</td>
+          <td>When enabled, only elements having a vertical scrollbar will be locked.</td>
+        </tr>
+        <tr>
+          <td>touch</td>
+          <td><code>boolean</code></td>
+          <td><code>auto</code></td>
+          <td>Indicates if an element's lock is enabled on touch screens.</td>
         </tr>
       </table>
-      <h2><a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a> Methods </h2>
+
+      <h3 id="remarks"> Remarks </h3>
+      <div style="margin-left:15px;">
+        <blockquote>
+          <p> This is pure JavaScript plugin, it <i>does not provide any CSS</i>. You need to implement your own!</p>
+        </blockquote>
+        <p>The <code>`animation`</code> option has two keys:
+          <pre><code>{
+  "top": "top locked",
+  "bottom": "bottom locked"
+}</code></pre>
+        </p>
+
+        <p> When an edge is locked, the value of both <code>animation.top + animation.bottom</code> will be removed from the
+          locked element's class list</p>
+        <p>Then based on the locked edge, the value of <code>animation.top</code> or <code>animation.bottom</code> is added
+          to the class list, and removed once the <code>animationend</code> event is fired.</p>
+
+
+      </div>
+
+      <h2 id="methods"> Methods </h2>
       <table>
         <tr>
           <th>Method</th>
@@ -204,7 +236,7 @@ $('[data-scrollLock="true"]').scrollLock()
           <td>Disables and destroys an element's Scroll Lock.</td>
         </tr>
       </table>
-      <h2><a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a> Events </h2>
+      <h2 id="events"> Events </h2>
       <table>
         <tr>
           <th>Event</th>
@@ -221,7 +253,7 @@ $('[data-scrollLock="true"]').scrollLock()
       </table>
       <pre><code>
 $('#target').on('top.scrollLock', function (evt) {
-  // do magic...
+  // do magic :)
 })
             </code></pre>
 
@@ -231,5 +263,4 @@ $('#target').on('top.scrollLock', function (evt) {
   </div>
   <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 </body>
-
 </html>
