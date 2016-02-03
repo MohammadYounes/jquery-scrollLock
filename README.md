@@ -30,28 +30,55 @@ bower install jquery-scrollLock
 
 Trigger Scroll Lock via JavaScript: 
 
-```
+```js
 $('#target').scrollLock();
-
 ```
 
 Trigger Scroll Lock via Markup:
-```
+```html
 <!-- HTML -->
-<div data-scrollLock="true" data-strict="true" data-selector=".child" > ... </div>
+<div data-scrollLock 
+     data-strict="true" 
+     data-selector=".child" 
+     data-animation="{\"top\":\"top locked\",\"bottom\":\"bottom locked\"}"> 
+     ...
+</div>
 
 <!-- JavaScript -->
-$('[data-scrollLock="true"]').scrollLock()
+<script type="text/javascript">
+  $('[data-scrollLock]').scrollLock()
+</script>
 ```
 
-### Options
+## Options
 
-|   Options |   Type    | Default   |   Description
-|:----------|:---------:|:---------:|:-------------
-| selector  | `string`  | `false`   | When provided, matching elements will be locked.
-| strict    | `boolean` | `false`   | When enabled, element will be locked even if it has no vertical scrollbar.
+|   Options |   Type    | Default       |   Description
+|:----------|:---------:|:-------------:|:-------------
+| animation | `object`  | `false`       | An object defining CSS class(es) to be applied when top or bottom edge is locked. (see [remarks](#remarks))
+| selector  | `string`  | `false`       | When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.
+| strict    | `boolean` | `false`       | When enabled, only elements having a vertical scrollbar will be locked.
+| touch     | `boolean` | `auto`        | Indicates if an element's lock is enabled on touch screens.
 
-### Methods
+
+### Remarks
+
+> This is pure JavaScript plugin, it *does not provide any CSS*. You need to implement your own!
+
+The `animation` option has two keys:
+
+```js
+{
+  "top": "top locked",
+  "bottom": "bottom locked"
+}
+```
+
+When an edge is locked, the value of both `animation.top + animation.bottom` will be removed from the locked element's class list.
+
+Then based on the locked edge, the value of `animation.top` or `animation.bottom` is added to the class list, and removed once the browser `animationend` event is fired.
+
+
+## Methods
 
 |   Method                     |    Description
 |:-----------------------------|:--------------
@@ -61,7 +88,7 @@ $('[data-scrollLock="true"]').scrollLock()
 | `.scrollLock('destroy')`     | Disables and destroys an element's Scroll Lock.
 
 
-### Events
+## Events
 
 |   Event             |   Description
 |:--------------------|:-------------
