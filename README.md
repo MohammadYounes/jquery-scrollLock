@@ -46,7 +46,7 @@ $('[data-scrollLock="true"]').scrollLock()
 
 ### Options
 
-|   Name    |   Type    | Default   |   Description
+|   Options |   Type    | Default   |   Description
 |:----------|:---------:|:---------:|:-------------
 | selector  | `string`  | `false`   | When provided, matching elements will be locked.
 | strict    | `boolean` | `false`   | When enabled, element will be locked even if it has no vertical scrollbar.
@@ -63,7 +63,7 @@ $('[data-scrollLock="true"]').scrollLock()
 
 ### Events
 
-|   Type              |   Description
+|   Event             |   Description
 |:--------------------|:-------------
 | `top.scrollLock`    | This event fires immediately when the top edge scroll is locked.
 | `bottom.scrollLock` | This event fires immediately when the bottom edge scroll is locked.
