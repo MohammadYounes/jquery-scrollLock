@@ -883,11 +883,6 @@ section #title .credits.right {
 .locked {
   position: relative;
 }
-
-.locked.bottom i:last-child {
-  visibility: visible
-}
-
 .locked.bottom i:last-child:before,
 .locked.top:before {
   content: "";
@@ -901,26 +896,19 @@ section #title .credits.right {
   border-radius: 500px/10px;
   animation-name: highlight;
   animation-duration: 1s;
+  animation-fill-mode: both;
   animation-iteration-count: 2;
 }
-
 .locked i:last-child {
   display: block;
-  visibility: hidden;
   position: relative;
   height: 15px;
   margin-top: -15px;
   overflow: hidden;
 }
-
-.locked.bottom i:last-child {
-  visibility: visible;
-}
-
 .locked.bottom i:last-child:before {
   top: 15px;
 }
-
 @keyframes highlight {
   0% {
     opacity: 0;
@@ -937,4 +925,26 @@ section #title .credits.right {
   100% {
     opacity: 0;
   }
+}
+/*work around for IE*/
+.locked.dummy-top{
+    animation-name: dummy-top;
+}
+.locked.dummy-bottom{
+    animation-name: dummy-bottom;
+}
+.locked.dummy-top, .locked.dummy-bottom{
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 2;
+}
+@keyframes dummy-top{
+    to{
+        visibility: visible;
+    }
+}
+@keyframes dummy-bottom{
+    to{
+        visibility: visible;
+    }
 }

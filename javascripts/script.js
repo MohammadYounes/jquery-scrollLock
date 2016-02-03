@@ -1,42 +1,18 @@
 $(function () {
-  var transition = (function () {
-    var t, type
-    var supported = false
-    var transitions = {
-      'animation': 'animationend',
-      'OAnimation': 'oAnimationEnd oanimationend',
-      'msAnimation': 'MSAnimationEnd',
-      'MozAnimation': 'animationend',
-      'WebkitAnimation': 'webkitAnimationEnd'
-    }
-    for (t in transitions) {
-      if (document.documentElement.style[t] !== undefined) {
-        type = transitions[t]
-        supported = true
-        break
-      }
-    }
-    return {
-      type: type,
-      supported: supported
-    }
-  }())
-
+  var classes =
+  ('ActiveXObject' in window)
+    ? {all: 'top bottom dummy-top dummy-bottom', top: 'top dummy-top', bottom: 'bottom dummy-bottom' }
+    : {all: 'top bottom', top: 'top', bottom: 'bottom'}
   function handler (event, css) {
-    clearTimeout(event.target.timer)
-    var $this = $(event.target).off('.animation')
-    if (transition.supported) {
-      $this.one(transition.type + '.animation', function () {
-        $this.removeClass(css)
-      })
-    } else {
-      event.target.timer = setTimeout(function (e) {
-        $this.removeClass(css)
-      }, 2000)
-    }
-    $this.removeClass('top bottom').addClass(css)
+    var $this = $(event.target)
+    $this.off('.effect')
+      .removeClass(classes.all)
+      .addClass(css)
+      .one('webkitAnimationEnd.effect mozAnimationEnd.effect MSAnimationEnd.effect oanimationend.effect animationend.effect',
+        function () {
+          $this.removeClass(css)
+        })
   }
-
   $('.checkbox.enable').checkbox({onChange: function (e) {
       var $this = $(this).closest('.checkbox')
       var enabled = $this.checkbox('is enabled')
@@ -50,24 +26,22 @@ $(function () {
         .end()
         .find('.checkbox.strict>input').prop('disabled', !enabled)
   }})
-
   $('.checkbox.strict').checkbox({onChange: function (e) {
       var $this = $(this).closest('.checkbox')
       $this.closest('.segment')
         .find('.example')
         .scrollLock('toggleStrict')
   }})
-
   $('.example')
     .scrollLock()
     .on('top.scrollLock', function (event) {
-      console.log('locked at top')
-      handler(event, 'top')
+      console.log('top locked')
+      handler(event, classes.top)
     })
     .on('bottom.scrollLock', function (event) {
-      console.log('locked at bottom')
-      handler(event, 'bottom')
+      console.log('bottom locked')
+      handler(event, classes.bottom)
     })
-    
-    $('[data-content]').popup();
+
+  $('[data-content]').popup()
 })
