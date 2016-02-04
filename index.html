@@ -1,87 +1,87 @@
 ﻿<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>jQuery Scroll Lock Plugin by MohammadYounes</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/css/semantic.css">
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="javascripts/jquery-scrollLock.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/javascript/semantic.js"></script>
-  <script src="javascripts/respond.js"></script>
-  <script src="javascripts/script.js"></script>
-  <!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jQuery Scroll Lock Plugin by MohammadYounes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/css/semantic.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/jquery-scrollLock.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/javascript/semantic.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <script src="javascripts/script.js"></script>
+    <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  <!--[if lt IE 8]>
+    <!--[if lt IE 8]>
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 
 <body>
-  <div id="header">
-    <nav>
-      <li class="fork"><a href="https://github.com/MohammadYounes/jquery-scrollLock">View On GitHub</a></li>
-      <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/zipball/master">ZIP</a></li>
-      <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/tarball/master">TAR</a></li>
-      <li class="title">DOWNLOADS</li>
-    </nav>
-  </div>
-  <!-- end header -->
-  <div class="wrapper">
-    <section>
-      <div id="title">
-        <h1>jQuery Scroll Lock Plugin</h1>
-        <p>Locks mouse wheel scroll inside container, preventing it from propagating to parent elements</p>
-        <hr>
-        <span class="credits left">Project maintained by <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
-        <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-      </div>
-      <h1 id="scroll-lock"> Scroll Lock </h1>
-      <p>
-        Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing
-        it from propagating to parent element.
-      </p>
-      <!--<blockquote>
+    <div id="header">
+        <nav>
+            <li class="fork"><a href="https://github.com/MohammadYounes/jquery-scrollLock">View On GitHub</a></li>
+            <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/zipball/master">ZIP</a></li>
+            <li class="downloads"><a href="https://github.com/MohammadYounes/jquery-scrollLock/tarball/master">TAR</a></li>
+            <li class="title">DOWNLOADS</li>
+        </nav>
+    </div>
+    <!-- end header -->
+    <div class="wrapper">
+        <section>
+            <div id="title">
+                <h1>jQuery Scroll Lock Plugin</h1>
+                <p>Locks mouse wheel scroll inside container, preventing it from propagating to parent elements</p>
+                <hr>
+                <span class="credits left">Project maintained by <a href="https://github.com/MohammadYounes">Mohammad Younes</a></span>
+                <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+            </div>
+            <h1 id="scroll-lock"> Scroll Lock </h1>
+            <p>
+                Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse wheel scroll inside a given container, preventing
+                it from propagating to parent element.
+            </p>
+            <!--<blockquote>
         <p> Jump to <a href="#demo">examples</a>.</p>
       </blockquote>-->
-      <h3 id="features">Features</h3>
-      <ul>
-        <li>It does not change wheel scrolling speed, user experience will not be affected. </li>
-        <li>
-          <p>You get the same behavior regardless of the OS mouse wheel vertical scrolling speed.</p>
+            <h3 id="features">Features</h3>
+            <ul>
+                <li>It does not change wheel scrolling speed, user experience will not be affected. </li>
+                <li>
+                    <p>You get the same behavior regardless of the OS mouse wheel vertical scrolling speed.</p>
 
-          <blockquote>
-            <p>On Windows it can be set to one screen or one line up to 100 lines per notch.</p>
-          </blockquote>
-        </li>
-      </ul>
+                    <blockquote>
+                        <p>On Windows it can be set to one screen or one line up to 100 lines per notch.</p>
+                    </blockquote>
+                </li>
+            </ul>
 
-      <h3 id="install-with-nuget"> Install with <a href="https://www.nuget.org/packages/jquery-scrollLock/">NuGet</a> </h3>
-      <pre><code>
+            <h3 id="install-with-nuget"> Install with <a href="https://www.nuget.org/packages/jquery-scrollLock/">NuGet</a> </h3>
+            <pre><code>
 Install-Package jquery-scrollLock
             </pre></code>
 
-      <h3 id="install-with-bower"> Install with Bower </h3>
-      <pre><code>
+            <h3 id="install-with-bower"> Install with Bower </h3>
+            <pre><code>
 bower install jquery-scrollLock
       </pre></code>
 
-      <br/>
-      <h1 id="demo">Demo</h1>
-      <hr/>
-      <h3 id="example1"> Example 1</h3>
-      <p>
-        Locking a scrollable element prevents wheel scroll event from propagating to its parent element.
-      </p>
-      <div class="ui segment">
-        <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
-          <span class="wrap">
+            <br/>
+            <h1 id="demo">Demo</h1>
+            <hr/>
+            <h3 id="example1"> Example 1</h3>
+            <p>
+                Locking a scrollable element prevents wheel scroll event from propagating to its parent element.
+            </p>
+            <div class="ui segment">
+                <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
+                    <span class="wrap">
             <p> Scroll over this using mouse wheel.</p>
             <p> This plugin does not provide any CSS, you need to implement your own!</p>
             <p> Scroll over this using mouse wheel.</p>
@@ -95,59 +95,59 @@ bower install jquery-scrollLock
             <p> Scroll over this using mouse wheel.</p>
             <p> This plugin does not provide any CSS, you need to implement your own!</p>
           </span>
-          <i></i>
-        </div>
-        <div class="ui top attached green label">
-          Scrollable Content
-        </div>
-        <div class="ui bottom attached label">
-          <div class="ui toggle enable checkbox">
-            <input type="checkbox" name="lock1" checked>
-            <label>Lock</label>
-          </div>
-          <div class="ui toggle strict checkbox" data-content="Lock element only if it has vertical scrollbar" data-position="right center">
-            <input type="checkbox" name="strict1">
-            <label>Strict</label>
-          </div>
-        </div>
-      </div>
+                    <i></i>
+                </div>
+                <div class="ui top attached green label">
+                    Scrollable Content
+                </div>
+                <div class="ui bottom attached label">
+                    <div class="ui toggle enable checkbox">
+                        <input type="checkbox" name="lock1" checked>
+                        <label>Lock</label>
+                    </div>
+                    <div class="ui toggle strict checkbox" data-content="Lock element only if it has vertical scrollbar" data-position="right center">
+                        <input type="checkbox" name="strict1">
+                        <label>Strict</label>
+                    </div>
+                </div>
+            </div>
 
 
-      <h3 id="example2">Example 2</h3>
-      <p>
-        Even none-scrollable elements can be locked.
-      </p>
-      <div class="ui segment">
-        <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
-          <span class="wrap">
+            <h3 id="example2">Example 2</h3>
+            <p>
+                Even none-scrollable elements can be locked.
+            </p>
+            <div class="ui segment">
+                <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
+                    <span class="wrap">
             <p> In strict mode, this element will not lock as it has no vertical scrollbar.</p>
           </span>
-          <i></i>
-        </div>
-        <div class="ui top attached green label">
-          None Scrollable Content
-        </div>
-        <div class="ui bottom attached label">
-          <div class="ui toggle enable checkbox">
-            <input type="checkbox" name="lock2" checked>
-            <label>Lock</label>
-          </div>
-          <div class="ui toggle strict checkbox" data-content="Lock element only if it has vertical scrollbar" data-position="right center">
-            <input type="checkbox" name="strict2">
-            <label>Strict</label>
-          </div>
-        </div>
-      </div>
+                    <i></i>
+                </div>
+                <div class="ui top attached green label">
+                    None Scrollable Content
+                </div>
+                <div class="ui bottom attached label">
+                    <div class="ui toggle enable checkbox">
+                        <input type="checkbox" name="lock2" checked>
+                        <label>Lock</label>
+                    </div>
+                    <div class="ui toggle strict checkbox" data-content="Lock element only if it has vertical scrollbar" data-position="right center">
+                        <input type="checkbox" name="strict2">
+                        <label>Strict</label>
+                    </div>
+                </div>
+            </div>
 
-      <br/>
-      <h1 id="usage"> Usage</h1>
-      <hr/>
-      <p>Trigger Scroll Lock via JavaScript:</p>
-      <pre><code>
+            <br/>
+            <h1 id="usage"> Usage</h1>
+            <hr/>
+            <p>Trigger Scroll Lock via JavaScript:</p>
+            <pre><code>
 $('#target').scrollLock();
             </code></pre>
-      <p>Trigger Scroll Lock via Markup:</p>
-      <pre><code>
+            <p>Trigger Scroll Lock via Markup:</p>
+            <pre><code>
 &lt;!-- HTML --&gt;
 &lt;div data-scrollLock 
      data-strict="true" 
@@ -159,108 +159,122 @@ $('#target').scrollLock();
 &lt;!-- JavaScript --&gt;
 $('[data-scrollLock="true"]').scrollLock()
             </code></pre>
-      <h2 id="options"> Options </h2>
-      <table>
-        <tr>
-          <th>Option</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>animation</td>
-          <td><code>object</code></td>
-          <td><code>false</code></td>
-          <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks">remarks</a>)</td>
-        </tr>
-        <tr>
-          <td>selector</td>
-          <td><code>string</code></td>
-          <td><code>false</code></td>
-          <td>When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.</td>
-        </tr>
-        <tr>
-          <td>strict</td>
-          <td><code>boolean</code></td>
-          <td><code>false</code></td>
-          <td>When enabled, only elements having a vertical scrollbar will be locked.</td>
-        </tr>
-        <tr>
-          <td>touch</td>
-          <td><code>boolean</code></td>
-          <td><code>auto</code></td>
-          <td>Indicates if an element's lock is enabled on touch screens.</td>
-        </tr>
-      </table>
+            <h2 id="options"> Options </h2>
+            <table>
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>animation</td>
+                    <td><code>object</code></td>
+                    <td><code>false</code></td>
+                    <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks">remarks</a>)</td>
+                </tr>
+                <tr>
+                    <td>selector</td>
+                    <td><code>string</code></td>
+                    <td><code>false</code></td>
+                    <td>When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.</td>
+                </tr>
+                <tr>
+                    <td>strict</td>
+                    <td><code>boolean</code></td>
+                    <td><code>false</code></td>
+                    <td>When enabled, only elements having a vertical scrollbar will be locked.</td>
+                </tr>
+                <tr>
+                    <td>touch</td>
+                    <td><code>boolean</code></td>
+                    <td><code>auto</code></td>
+                    <td>Indicates if an element's lock is enabled on touch screens.</td>
+                </tr>
+            </table>
 
-      <h3 id="remarks"> Remarks </h3>
-      <div style="margin-left:15px;">
-        <blockquote>
-          <p> This is pure JavaScript plugin, it <i>does not provide any CSS</i>. You need to implement your own!</p>
-        </blockquote>
-        <p>The <code>`animation`</code> option has two keys:
-          <pre><code>{
+            <h3 id="remarks"> Remarks </h3>
+            <div style="margin-left:15px;">
+                <blockquote>
+                    <p> This is pure JavaScript plugin, it <i>does not provide any CSS</i>. You need to implement your own!</p>
+                </blockquote>
+                <p>The <code>`animation`</code> option has two keys:
+                    <pre><code>{
   "top": "top locked",
   "bottom": "bottom locked"
 }</code></pre>
-        </p>
+                </p>
 
-        <p> When an edge is locked, the value of both <code>animation.top + animation.bottom</code> will be removed from the
-          locked element's class list</p>
-        <p>Then based on the locked edge, the value of <code>animation.top</code> or <code>animation.bottom</code> is added
-          to the class list, and removed once the <code>animationend</code> event is fired.</p>
+                <p> When an edge is locked, the value of both <code>animation.top + animation.bottom</code> will be removed from
+                    the locked element's class list</p>
+                <p>Then based on the locked edge, the value of <code>animation.top</code> or <code>animation.bottom</code> is
+                    added to the class list, and removed once the <code>animationend</code> event is fired.</p>
 
 
-      </div>
+            </div>
 
-      <h2 id="methods"> Methods </h2>
-      <table>
-        <tr>
-          <th>Method</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td><code>.scrollLock('enable')</code></td>
-          <td>Enables an element's Scroll Lock.</td>
-        </tr>
-        <tr>
-          <td><code>.scrollLock('disable')</code></td>
-          <td>Disables an element's Scroll Lock.</td>
-        </tr>
-        <tr>
-          <td><code>.scrollLock('toggleStrict')</code></td>
-          <td>Toggles an element's strict option.</td>
-        </tr>
-        <tr>
-          <td><code>.scrollLock('destroy')</code></td>
-          <td>Disables and destroys an element's Scroll Lock.</td>
-        </tr>
-      </table>
-      <h2 id="events"> Events </h2>
-      <table>
-        <tr>
-          <th>Event</th>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td><code>top.scrollLock</code></td>
-          <td>This event fires immediately when the top edge scroll is locked.</td>
-        </tr>
-        <tr>
-          <td><code>bottom.scrollLock</code></td>
-          <td>This event fires immediately when the bottom edge scroll is locked.</td>
-        </tr>
-      </table>
-      <pre><code>
+            <h2 id="methods"> Methods </h2>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>.scrollLock('enable')</code></td>
+                    <td>Enables an element's Scroll Lock.</td>
+                </tr>
+                <tr>
+                    <td><code>.scrollLock('disable')</code></td>
+                    <td>Disables an element's Scroll Lock.</td>
+                </tr>
+                <tr>
+                    <td><code>.scrollLock('toggleStrict')</code></td>
+                    <td>Toggles an element's strict option.</td>
+                </tr>
+                <tr>
+                    <td><code>.scrollLock('destroy')</code></td>
+                    <td>Disables and destroys an element's Scroll Lock.</td>
+                </tr>
+            </table>
+            <h2 id="events"> Events </h2>
+            <table>
+                <tr>
+                    <th>Event</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>top.scrollLock</code></td>
+                    <td>This event fires immediately when the top edge scroll is locked.</td>
+                </tr>
+                <tr>
+                    <td><code>bottom.scrollLock</code></td>
+                    <td>This event fires immediately when the bottom edge scroll is locked.</td>
+                </tr>
+            </table>
+            <pre><code>
 $('#target').on('top.scrollLock', function (evt) {
   // do magic :)
 })
             </code></pre>
 
-      <hr>
-      <p>Have a suggestion or a bug ? please <a href="https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open">open a new issue.</a></p>
-    </section>
-  </div>
-  <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+            <hr>
+            <p>Have a suggestion or a bug ? please <a href="https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open">open a new issue.</a></p>
+            <br/>
+            <br/>
+            <div id="disqus_thread"></div>
+            <script>
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//jquery-scrolllock.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//jquery-scrolllock.disqus.com/count.js" async></script>
+        </section>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 </body>
+
 </html>
