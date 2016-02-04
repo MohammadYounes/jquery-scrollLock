@@ -38,9 +38,9 @@ Trigger Scroll Lock via Markup:
 ```html
 <!-- HTML -->
 <div data-scrollLock 
-     data-strict="true" 
-     data-selector=".child" 
-     data-animation="{\"top\":\"top locked\",\"bottom\":\"bottom locked\"}"> 
+     data-strict='true' 
+     data-selector='.child' 
+     data-animation='{"top":"top locked","bottom":"bottom locked"}'> 
      ...
 </div>
 
