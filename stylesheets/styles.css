@@ -854,13 +854,12 @@ section #title .credits.right {
 
 /*Custom*/
 .example {
-  padding: 4px 4px 0;
+  padding:0 4px;
   height: 200px;
   overflow: auto;
   -webkit-overflow-scrolling:touch;
   color: black;
 }
-
 .content {
     text-transform: initial;
 }
@@ -873,25 +872,24 @@ section #title .credits.right {
 .ui.bottom.label.green {
   color: black!important;
 }
-.wrap {
+.scrollable {
   display: block;
   position: relative;
   min-height: 100%;
   height: auto;
   padding: 0 5px;
 }
-.wrap>p:last-child{
+.scrollable>p:last-child{
   margin:0;
 }
 .locked {
   position: relative;
 }
 .locked.bottom i:last-child:before,
-.locked.top:before {
+.locked.top i:first-child:before {
   content: "";
   position: absolute;
   opacity: 0;
-  top: -50px;
   left: 10px;
   right: 10px;
   height: 50px;
@@ -900,14 +898,23 @@ section #title .credits.right {
   animation-name: highlight;
   animation-duration: .5s;
   animation-fill-mode: both;
-  animation-iteration-count: 1;
+  animation-iteration-count: 100;
 }
+.locked i:first-child,
 .locked i:last-child {
   display: block;
   position: relative;
   height: 15px;
-  margin-top: -15px;
   overflow: hidden;
+}
+.locked i:first-child {
+  margin-bottom: -15px;  
+}
+.locked i:last-child {
+  margin-top: -15px;  
+}
+.locked.top i:first-child:before {
+  bottom: 15px;
 }
 .locked.bottom i:last-child:before {
   top: 15px;
@@ -929,15 +936,14 @@ section #title .credits.right {
     opacity: 0;
   }
 }
-
-.locked.elastic-top .wrap{
+.locked.elastic-top .scrollable{
     animation-name: elastic-top;
     min-height: 0;
 }
-.locked.elastic-bottom .wrap{
+.locked.elastic-bottom .scrollable{
     animation-name: elastic-bottom;
 }
-.locked.elastic-top .wrap, .locked.elastic-bottom .wrap{
+.locked.elastic-top .scrollable, .locked.elastic-bottom .scrollable{
   animation-duration: .5s;
   animation-timing-function: ease;
   animation-fill-mode: both;
