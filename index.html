@@ -79,7 +79,7 @@ bower install jquery-scrollLock
             <p>
                 Locking a scrollable element prevents wheel scroll event from propagating to its parent element.
             </p>
-            <div class="ui segment">
+            <div class="ui segment">              
                 <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
                     <i></i>
                     <span class="scrollable">
@@ -173,7 +173,7 @@ $('[data-scrollLock]').scrollLock()
                     <td>animation</td>
                     <td><code>object</code></td>
                     <td><code>false</code></td>
-                    <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks">remarks</a>)</td>
+                    <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks">remarks<sup>1</sup></a>)</td>
                 </tr>
                 <tr>
                     <td>selector</td>
@@ -185,7 +185,13 @@ $('[data-scrollLock]').scrollLock()
                     <td>strict</td>
                     <td><code>boolean</code></td>
                     <td><code>false</code></td>
-                    <td>When enabled, only elements having a vertical scrollbar will be locked.</td>
+                    <td>When enabled, only elements passing the <code>strictFn</code> check will be locked.</td>
+                </tr>
+                <tr>
+                  <td>strictFn</td>
+                  <td><code>function</code></td>
+                  <td><code><a href="#remarks2">remarks<sup>2</sup></a></code></td>
+                  <td>This function is responsible for deciding if the element should be locked or not.</td>
                 </tr>
                 <tr>
                     <td>touch</td>
@@ -194,8 +200,7 @@ $('[data-scrollLock]').scrollLock()
                     <td>Indicates if an element's lock is enabled on touch screens.</td>
                 </tr>
             </table>
-
-            <h3 id="remarks"> Remarks </h3>
+            <h3 id="remarks1"> Remarks<sup>1</sup> </h3>
             <div style="margin-left:15px;">
                 <blockquote>
                     <p> This is pure JavaScript plugin, it <i>does not provide any CSS</i>. You need to implement your own!</p>
@@ -211,9 +216,27 @@ $('[data-scrollLock]').scrollLock()
                     the locked element's class list</p>
                 <p>Then based on the locked edge, the value of <code>animation.top</code> or <code>animation.bottom</code> is
                     added to the class list, and removed once the <code>animationend</code> event is fired.</p>
-
-
             </div>
+            <h3 id="remarks2"> Remarks<sup>2</sup> </h3>
+                <div style="margin-left:15px;">
+                    <p>The default <code>`strictFn`</code> implementation checks if the element requires a vertical scrollbar.</p>
+                    <pre><code>
+strictFn = function($element){
+  return $element.prop('scrollHeight') > $element.prop('clientHeight'); 
+}</code></pre>
+            
+                    <blockquote style="font-style:normal">
+                        <p>In previous versions (<i> <= v2.1.0 </i>), The check was based on scrollbar visibility, In case you require such behavior, include the following in your script: </p>
+                        <pre><code>
+$.fn.scrollLock.defaults.strictFn = function ($element) {
+  var clientWidth = $element.prop('clientWidth'),
+  offsetWidth = $element.prop('offsetWidth'),
+  borderRightWidth = parseInt($element.css('border-right-width'), 10),
+  borderLeftWidth = parseInt($element.css('border-left-width'), 10)
+  return clientWidth + borderLeftWidth + borderRightWidth < offsetWidth
+}                       </code></pre>
+                    <blockquote>
+                </div>
 
             <h2 id="methods"> Methods </h2>
             <table>
