@@ -27,7 +27,7 @@
     }
   }
   ScrollLock.NAME = 'ScrollLock'
-  ScrollLock.VERSION = '2.1.0'
+  ScrollLock.VERSION = '2.2.0'
   ScrollLock.NAMESPACE = '.scrollLock'
   ScrollLock.ANIMATION_NAMESPACE = ScrollLock.NAMESPACE + '.effect'
   ScrollLock.DEFAULTS = {
