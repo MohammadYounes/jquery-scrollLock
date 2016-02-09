@@ -52,15 +52,16 @@ Trigger Scroll Lock via Markup:
 
 ## Options
 
-|   Options |   Type    | Default       |   Description
-|:----------|:---------:|:-------------:|:-------------
-| animation | `object`  | `false`       | An object defining CSS class(es) to be applied when top or bottom edge is locked. (see [remarks](#remarks))
-| selector  | `string`  | `false`       | When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.
-| strict    | `boolean` | `false`       | When enabled, only elements having a vertical scrollbar will be locked.
-| touch     | `boolean` | `auto`        | Indicates if an element's lock is enabled on touch screens.
+|   Options |   Type     | Default    |   Description
+|:----------|:----------:|:----------:|:-------------
+| animation | `object`   | `false`    | An object defining CSS class(es) to be applied when top or bottom edge is locked. (see [remarks<sup>1</sup>](#remarks1))
+| selector  | `string`   | `false`    | When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.
+| strict    | `boolean`  | `false`    | When enabled, only elements passing the `strictFn` check will be locked.
+| strictFn  | `function` | (see [remarks<sup>2</sup>](#remarks2)) | This function is responsible for deciding if the element should be locked or not.
+| touch     | `boolean`  | `auto`     | Indicates if an element's lock is enabled on touch screens.
 
 
-### Remarks
+### Remarks<sup>1</sup>
 
 > This is pure JavaScript plugin, it *does not provide any CSS*. You need to implement your own!
 
@@ -77,6 +78,25 @@ When an edge is locked, the value of both `animation.top + animation.bottom` wil
 
 Then based on the locked edge, the value of `animation.top` or `animation.bottom` is added to the class list, and removed once the browser `animationend` event is fired.
 
+
+### Remarks<sup>2</sup>
+
+The default `strictFn` implementation checks if the element requires a vertical scrollbar.
+```javascript
+strictFn = function($element){
+  return $element.prop('scrollHeight') > $element.prop('clientHeight'); 
+}
+```
+> In previous versions (<= v2.1.0), The check was based on scrollbar visibility, In case you require such behavior, include the following in your script:
+```javascript
+$.fn.scrollLock.defaults.strictFn = function ($element) {
+  var clientWidth = $element.prop('clientWidth'),
+  offsetWidth = $element.prop('offsetWidth'),
+  borderRightWidth = parseInt($element.css('border-right-width'), 10),
+  borderLeftWidth = parseInt($element.css('border-left-width'), 10)
+  return clientWidth + borderLeftWidth + borderRightWidth < offsetWidth
+}
+```
 
 ## Methods
 

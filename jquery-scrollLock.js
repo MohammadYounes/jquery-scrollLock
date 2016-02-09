@@ -1,5 +1,5 @@
 /*!
- * Scroll Lock v2.1.0
+ * Scroll Lock v2.2.0
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2016 Mohammad Younes
@@ -32,6 +32,9 @@
   ScrollLock.ANIMATION_NAMESPACE = ScrollLock.NAMESPACE + '.effect'
   ScrollLock.DEFAULTS = {
     strict: false,
+    strictFn: function ($element) {
+      return $element.prop('scrollHeight') > $element.prop('clientHeight')
+    },
     selector: false,
     animation: false,
     touch: 'ontouchstart' in window,
@@ -45,18 +48,11 @@
         'oanimationend',
         'animationend'
       ].join(ScrollLock.ANIMATION_NAMESPACE + ' ') + ScrollLock.ANIMATION_NAMESPACE,
-    hasVerticalScroll: function ($element) {
-      var clientWidth = $element.prop('clientWidth'),
-        offsetWidth = $element.prop('offsetWidth'),
-        borderRightWidth = parseInt($element.css('border-right-width'), 10),
-        borderLeftWidth = parseInt($element.css('border-left-width'), 10)
-      return clientWidth + borderLeftWidth + borderRightWidth < offsetWidth
-    },
     handler: function (event) {
       // allow zooming
       if (this.enabled && !event.ctrlKey) {
         var $this = $(event.currentTarget)
-        if (this.options.strict !== true || ScrollLock.CORE.hasVerticalScroll($this)) {
+        if (this.options.strict !== true || this.options.strictFn($this)) {
           // Support for nested scrollable blocks (see https://github.com/MohammadYounes/jquery-scrollLock/issues/4)
           event.stopPropagation()
           var scrollTop = $this.scrollTop(),
@@ -89,7 +85,7 @@
       this.startClientY = event.originalEvent.touches[0].clientY
     },animationHandler: function ($element, key) {
       var css = this.options.animation[key],
-          all = this.options.animation.top + ' ' + this.options.animation.bottom
+        all = this.options.animation.top + ' ' + this.options.animation.bottom
       $element.off(ScrollLock.ANIMATION_NAMESPACE)
         .removeClass(all)
         .addClass(css)
