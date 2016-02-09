@@ -57,7 +57,7 @@ Trigger Scroll Lock via Markup:
 | animation | `object`   | `false`    | An object defining CSS class(es) to be applied when top or bottom edge is locked. (see [remarks<sup>1</sup>](#remarks1))
 | selector  | `string`   | `false`    | When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.
 | strict    | `boolean`  | `false`    | When enabled, only elements passing the `strictFn` check will be locked.
-| strictFn  | `function` | (see [remarks<sup>2</sup>](#remarks2)) | This function is responsible for deciding if the element should be locked or not.
+| strictFn  | `function` | [remarks<sup>2</sup>](#remarks2) | This function is responsible for deciding if the element should be locked or not.
 | touch     | `boolean`  | `auto`     | Indicates if an element's lock is enabled on touch screens.
 
 
