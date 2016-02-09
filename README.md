@@ -87,7 +87,7 @@ strictFn = function($element){
   return $element.prop('scrollHeight') > $element.prop('clientHeight'); 
 }
 ```
-> In previous versions (<= v2.1.0), The check was based on scrollbar visibility, In case you require such behavior, include the following in your script:
+> In previous versions (&le; v2.1.0), The check was based on scrollbar visibility, In case you require such behavior, include the following in your script:
 ```javascript
 $.fn.scrollLock.defaults.strictFn = function ($element) {
   var clientWidth = $element.prop('clientWidth'),
