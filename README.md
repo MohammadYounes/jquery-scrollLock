@@ -15,6 +15,7 @@ Scroll Lock is a jQuery plugin that fully addresses the issue of locking mouse w
 * You get the same behavior regardless of the OS mouse wheel vertical scrolling speed.
 
   > On Windows it can be set to one screen or one line up to 100 lines per notch.
+* Supports touch screens.
 
 ### Install with [NuGet](https://www.nuget.org/packages/jquery-scrollLock/) 
 ```
