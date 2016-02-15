@@ -1,6 +1,9 @@
 [![GitHub version](https://badge.fury.io/gh/MohammadYounes%2Fjquery-scrollLock.svg)](http://badge.fury.io/gh/MohammadYounes%2Fjquery-scrollLock)
 [![Bower version](https://img.shields.io/bower/v/jquery-scrollLock.svg)](https://github.com/MohammadYounes/jquery-scrollLock)
 [![NuGet version](https://img.shields.io/nuget/v/jquery-scrollLock.svg)](https://www.nuget.org/packages/jquery-scrollLock/)
+[![NPM version](https://img.shields.io/npm/v/jquery-scroll-lock.svg)](https://www.npmjs.com/package/jquery-scroll-lock/)
+
+
 
 Scroll Lock
 =================
@@ -25,6 +28,11 @@ Install-Package jquery-scrollLock
 ### Install with Bower
 ```
 bower install jquery-scrollLock
+```
+
+### Install with [NPM](https://www.npmjs.com/package/jquery-scroll-lock/) 
+```
+npm install jquery-scroll-lock --save
 ```
 
 ## Usage
