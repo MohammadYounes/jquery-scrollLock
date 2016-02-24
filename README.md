@@ -132,3 +132,9 @@ $('#target').on('top.scrollLock', function (evt) {
 
 ------
 Have a suggestion or a bug ? please [open a new issue.](https://github.com/MohammadYounes/jquery-scrollLock/issues?state=open)
+
+
+
+## Commercial License
+
+If you want to use jquery-scrollLock.js to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a jquery-scrollLock.js Commercial License at http://www.uplabs.com/posts/scroll-lock-plugin
