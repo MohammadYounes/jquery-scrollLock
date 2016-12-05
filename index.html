@@ -89,7 +89,7 @@ npm install jquery-scroll-lock --save
                 Locking a scrollable element prevents wheel scroll event from propagating to its parent element.
             </p>
             <div class="ui segment">              
-                <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
+                <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}' data-keyboard='{"tabindex":0}'>
                     <i></i>
                     <span class="scrollable">
             <p> Scroll over this using mouse wheel.</p>
@@ -128,7 +128,7 @@ npm install jquery-scroll-lock --save
                 Even none-scrollable elements can be locked.
             </p>
             <div class="ui segment">
-                <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}'>
+                <div class="example locked" data-animation='{"top": "top elastic-top", "bottom": "bottom elastic-bottom"}' data-keyboard='{"tabindex":0}'>
                     <i></i>
                     <span class="scrollable">
                        <p> In strict mode, this element will not lock as it has no vertical scrollbar.</p>
@@ -163,7 +163,8 @@ $('#target').scrollLock();
 &lt;div data-scrollLock 
      data-strict='true'
      data-selector='.child' 
-     data-animation='{"top":"top locked","bottom":"bottom locked"}' &gt;
+     data-animation='{"top":"top locked","bottom":"bottom locked"}'
+     data-keyboard='{"tabindex":0}' &gt;
  &hellip; 
 &lt;/div&gt;
 
@@ -182,7 +183,13 @@ $('[data-scrollLock]').scrollLock()
                     <td>animation</td>
                     <td><code>object</code></td>
                     <td><code>false</code></td>
-                    <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks">remarks<sup>1</sup></a>)</td>
+                    <td>An object defining CSS class(es) to be applied when top or bottom edge is locked. (see <a href="#remarks1">remarks<sup>1</sup></a>)</td>
+                </tr>
+                <tr>
+                    <td>keyboard</td>
+                    <td><code>object</code></td>
+                    <td><code>false</code></td>
+                    <td>When enabled, keys that causes scrolling will also be locked. (see <a href="#remarks2">remarks<sup>2</sup></a>)</td>
                 </tr>
                 <tr>
                     <td>selector</td>
@@ -199,7 +206,7 @@ $('[data-scrollLock]').scrollLock()
                 <tr>
                   <td>strictFn</td>
                   <td><code>function</code></td>
-                  <td><code><a href="#remarks2">remarks<sup>2</sup></a></code></td>
+                  <td><code><a href="#remarks3">remarks<sup>3</sup></a></code></td>
                   <td>This function is responsible for deciding if the element should be locked or not.</td>
                 </tr>
                 <tr>
@@ -227,6 +234,21 @@ $('[data-scrollLock]').scrollLock()
                     added to the class list, and removed once the <code>animationend</code> event is fired.</p>
             </div>
             <h3 id="remarks2"> Remarks<sup>2</sup> </h3>
+            <div style="margin-left:15px;">
+                <p>In chrome, The following keys causes a scroll, which may propagate to parent element.</p>
+                <pre><kbd>space</kbd>, <kbd>pageup</kbd>, <kbd>pagedown</kbd> , <kbd>end</kbd> , <kbd>home</kbd>, <kbd>up</kbd>, <kbd>down</kbd></pre>
+                <p>  </p>
+                <p> The <code>`keyboard`</code> option has one key:
+                    <pre><code>{ "tabindex": 0 }</code></pre>
+                </p>
+
+                <blockquote>
+                    <p>The <code>`tabindex`</code> is required to be able to listen to keyboard events on none input elements, such as a <code>`div`</code>. The side effect of adding a <code>`tabindex`</code> is the browser highlight when the element is focused.</p>
+                    <p>Which can be avoided via CSS <code>`outline`</code> property.
+                    <pre><code>.scrollable{ outline:0; }</code></pre></p>
+                </blockquote>
+            </div>
+            <h3 id="remarks3"> Remarks<sup>3</sup> </h3>
                 <div style="margin-left:15px;">
                     <p>The default <code>`strictFn`</code> implementation checks if the element requires a vertical scrollbar.</p>
                     <pre><code>
