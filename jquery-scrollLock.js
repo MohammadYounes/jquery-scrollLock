@@ -1,5 +1,5 @@
 /*!
- * Scroll Lock v2.2.0
+ * Scroll Lock v3.0.0
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2016 Mohammad Younes
@@ -15,6 +15,7 @@
   }
 }(function ($) {
   'use strict'
+  var keys = { space: 32, pageup: 33, pagedown: 34, end: 35, home: 36,  up: 38, down: 40 }
   var ScrollLock = function ($element, options) {
     this.$element = $element
     this.options = $.extend({}, ScrollLock.DEFAULTS, this.$element.data(), options)
@@ -25,9 +26,13 @@
       this.$element.on('touchstart' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.touchHandler, this))
       this.$element.on('touchmove' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.handler, this))
     }
+    if (this.options.keyboard) {
+      this.$element.attr('tabindex', this.options.keyboard.tabindex || 0)
+      this.$element.on('keydown' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.keyboardHandler, this))
+    }
   }
   ScrollLock.NAME = 'ScrollLock'
-  ScrollLock.VERSION = '2.2.0'
+  ScrollLock.VERSION = '3.0.0'
   ScrollLock.NAMESPACE = '.scrollLock'
   ScrollLock.ANIMATION_NAMESPACE = ScrollLock.NAMESPACE + '.effect'
   ScrollLock.DEFAULTS = {
@@ -38,9 +43,12 @@
     selector: false,
     animation: false,
     touch: 'ontouchstart' in window,
+    keyboard: false
   }
   ScrollLock.CORE = {
-    wheelEventName: 'onmousewheel' in window ? (('ActiveXObject' in window) ? 'wheel' : 'mousewheel') : 'DOMMouseScroll',
+    wheelEventName: 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
+      document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
+        'DOMMouseScroll', // let's assume that remaining browsers are older Firefox,
     animationEventName: [
         'webkitAnimationEnd',
         'mozAnimationEnd',
@@ -83,7 +91,8 @@
     },
     touchHandler: function (event) {
       this.startClientY = event.originalEvent.touches[0].clientY
-    },animationHandler: function ($element, key) {
+    },
+    animationHandler: function ($element, key) {
       var css = this.options.animation[key],
         all = this.options.animation.top + ' ' + this.options.animation.bottom
       $element.off(ScrollLock.ANIMATION_NAMESPACE)
@@ -93,6 +102,29 @@
           function () {
             $element.removeClass(css)
           })
+    },
+    keyboardHandler: function (event) {
+      var $this = $(event.currentTarget),
+        scrollTop = $this.scrollTop()
+
+      if (scrollTop === 0 && (event.keyCode === keys.pageup || event.keyCode === keys.home || event.keyCode === keys.up)) {
+        $this.trigger($.Event('top' + ScrollLock.NAMESPACE))
+        if (this.options.animation) {
+          setTimeout(ScrollLock.CORE.animationHandler.bind(this, $this, 'top'), 0)
+        }
+        return false
+      } else {
+        var scrollHeight = $this.prop('scrollHeight'),
+          clientHeight = $this.prop('clientHeight')
+
+        if (scrollHeight === scrollTop + clientHeight && (event.keyCode === keys.space || event.keyCode === keys.pagedown || event.keyCode === keys.end || event.keyCode === keys.down)) {
+          $this.trigger($.Event('bottom' + ScrollLock.NAMESPACE))
+          if (this.options.animation) {
+            setTimeout(ScrollLock.CORE.animationHandler.bind(this, $this, 'bottom'), 0)
+          }
+          return false
+        }
+      }
     }
   }
   ScrollLock.prototype.toggleStrict = function () {
@@ -128,4 +160,4 @@
     $.fn.scrollLock = old
     return this
   }
-}))
+}));

@@ -49,7 +49,8 @@ Trigger Scroll Lock via Markup:
 <div data-scrollLock 
      data-strict='true' 
      data-selector='.child' 
-     data-animation='{"top":"top locked","bottom":"bottom locked"}'> 
+     data-animation='{"top":"top locked","bottom":"bottom locked"}'
+     data-keyboard='{"tabindex":0}'>
      ...
 </div>
 
@@ -64,9 +65,10 @@ Trigger Scroll Lock via Markup:
 |   Options |   Type     | Default    |   Description
 |:----------|:----------:|:----------:|:-------------
 | animation | `object`   | `false`    | An object defining CSS class(es) to be applied when top or bottom edge is locked. (see [remarks<sup>1</sup>](#remarks1))
+| keyboard  | `object`   | `false`    | When enabled, keys that causes scrolling will also be locked. (see [remarks<sup>2</sup>](#remarks2))
 | selector  | `string`   | `false`    | When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.
 | strict    | `boolean`  | `false`    | When enabled, only elements passing the `strictFn` check will be locked.
-| strictFn  | `function` | [remarks<sup>2</sup>](#remarks2) | This function is responsible for deciding if the element should be locked or not.
+| strictFn  | `function` | [remarks<sup>32</sup>](#remarks3) | This function is responsible for deciding if the element should be locked or not.
 | touch     | `boolean`  | `auto`     | Indicates if an element's lock is enabled on touch screens.
 
 
@@ -87,8 +89,27 @@ When an edge is locked, the value of both `animation.top + animation.bottom` wil
 
 Then based on the locked edge, the value of `animation.top` or `animation.bottom` is added to the class list, and removed once the browser `animationend` event is fired.
 
-
 ### Remarks<sup>2</sup>
+
+In chrome, The following keys causes a scroll, which may propagate to parent element.
+
+<kbd>space</kbd>, <kbd>pageup</kbd>, <kbd>pagedown</kbd> , <kbd>end</kbd> , <kbd>home</kbd>, <kbd>up</kbd>, <kbd>down</kbd>
+
+The `keyboard` option has one key:
+
+```js
+{ "tabindex": 0 }
+```
+
+The `tabindex` is required to be able to listen to keyboard events on none input elements, such as a `div`. The side effect of adding a `tabindex` is the browser highlight when the element is focused.
+
+Which can be avoided via CSS `outline` property.
+
+```css
+.scrollable{ outline:0; }
+```
+
+### Remarks<sup>3</sup>
 
 The default `strictFn` implementation checks if the element requires a vertical scrollbar.
 ```javascript
