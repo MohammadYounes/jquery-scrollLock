@@ -1,5 +1,5 @@
 /*!
- * Scroll Lock v3.1.0
+ * Scroll Lock v3.1.1
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
  * Copyright (c) 2016 Mohammad Younes
@@ -66,7 +66,7 @@
     }
   }
   ScrollLock.NAME = 'ScrollLock'
-  ScrollLock.VERSION = '3.1.0'
+  ScrollLock.VERSION = '3.1.1'
   ScrollLock.NAMESPACE = '.scrollLock'
   ScrollLock.ANIMATION_NAMESPACE = ScrollLock.NAMESPACE + '.effect'
   ScrollLock.DEFAULTS = {
@@ -189,4 +189,4 @@
     $.fn.scrollLock = old
     return this
   }
-}))
+}));
