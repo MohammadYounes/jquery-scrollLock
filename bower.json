@@ -1,8 +1,8 @@
 {
   "name": "jquery-scrollLock",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "main": "jquery-scrollLock.js",
-  "license": "MIT",
+  "license": "GPL 3",
   "ignore": [
     ".gitignore",
     "scrollLock.jquery.json"
