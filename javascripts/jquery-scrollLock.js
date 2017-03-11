@@ -1,9 +1,9 @@
 /*!
- * Scroll Lock v3.1.0
+ * Scroll Lock v3.1.2
  * https://github.com/MohammadYounes/jquery-scrollLock
  *
- * Copyright (c) 2016 Mohammad Younes
- * Licensed under the MIT license.
+ * Copyright (c) 2017 Mohammad Younes
+ * Licensed under GPL 3.
  */
 ;(function (factory) {
   if (typeof define === 'function' && define.amd) {
@@ -66,7 +66,7 @@
     }
   }
   ScrollLock.NAME = 'ScrollLock'
-  ScrollLock.VERSION = '3.1.0'
+  ScrollLock.VERSION = '3.1.2'
   ScrollLock.NAMESPACE = '.scrollLock'
   ScrollLock.ANIMATION_NAMESPACE = ScrollLock.NAMESPACE + '.effect'
   ScrollLock.DEFAULTS = {
@@ -189,4 +189,4 @@
     $.fn.scrollLock = old
     return this
   }
-}))
+}));
