@@ -46,11 +46,12 @@ $('#target').scrollLock();
 Trigger Scroll Lock via Markup:
 ```html
 <!-- HTML -->
-<div data-scrollLock 
-     data-strict='true' 
-     data-selector='.child' 
+<div data-scrollLock
+     data-strict='true'
+     data-selector='.child'
      data-animation='{"top":"top locked","bottom":"bottom locked"}'
-     data-keyboard='{"tabindex":0}'>
+     data-keyboard='{"tabindex":0}'
+     data-unblock='.inner'>
      ...
 </div>
 
@@ -70,6 +71,7 @@ Trigger Scroll Lock via Markup:
 | strict    | `boolean`  | `false`    | When enabled, only elements passing the `strictFn` check will be locked.
 | strictFn  | `function` | [remarks<sup>32</sup>](#remarks3) | This function is responsible for deciding if the element should be locked or not.
 | touch     | `boolean`  | `auto`     | Indicates if an element's lock is enabled on touch screens.
+| unblock	  | `string`   | `false`    | When provided, matching descendants scrolling will be unblocked. Useful when having a scrollable element inside a locked one.
 
 
 ### Remarks<sup>1</sup>
