@@ -69,7 +69,7 @@ Trigger Scroll Lock via Markup:
 | keyboard  | `object`   | `false`    | When enabled, keys that causes scrolling will also be locked. (see [remarks<sup>2</sup>](#remarks2))
 | selector  | `string`   | `false`    | When provided, matching descendants will be locked. Useful when dealing with dynamic HTML.
 | strict    | `boolean`  | `false`    | When enabled, only elements passing the `strictFn` check will be locked.
-| strictFn  | `function` | [remarks<sup>32</sup>](#remarks3) | This function is responsible for deciding if the element should be locked or not.
+| strictFn  | `function` | [remarks<sup>3</sup>](#remarks3) | This function is responsible for deciding if the element should be locked or not.
 | touch     | `boolean`  | `auto`     | Indicates if an element's lock is enabled on touch screens.
 | unblock	  | `string`   | `false`    | When provided, matching descendants scrolling will be unblocked. Useful when having a scrollable element inside a locked one.
 
