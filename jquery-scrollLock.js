@@ -55,6 +55,10 @@
     if (this.options.touch) {
       this.$element.on('touchstart' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.touchHandler, this))
       this.$element.on('touchmove' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.handler, this))
+      
+      if (this.options.unblock) {
+        this.$element.on('touchmove' + ScrollLock.NAMESPACE, this.options.unblock, $.proxy(ScrollLock.CORE.unblockHandler, this))
+      }
     }
     if (this.options.keyboard) {
       this.$element.attr('tabindex', this.options.keyboard.tabindex || 0)
