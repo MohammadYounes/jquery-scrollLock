@@ -1,7 +1,7 @@
 {
   "name": "jquery-scroll-lock",
   "title": "jQuery Scroll Lock",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "Locks mouse wheel scroll inside container, preventing it from propagating to parent element",
   "main": "jquery-scrollLock.js",
   "scripts": {

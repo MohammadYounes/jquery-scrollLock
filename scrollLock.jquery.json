@@ -2,7 +2,7 @@
   "name": "scrollLock",
   "title": "Scroll Lock",
   "description": "Locks mouse wheel scroll inside container, preventing it from propagating to parent element",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "author": {
     "name": "Mohammad Younes",
     "url": "https://github.com/MohammadYounes"
